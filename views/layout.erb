@@ -7,9 +7,22 @@
 	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 <body>
 <nav class="center-hrizontal">
+	<div>
+
+<ul>
+	<% if !current_user.nil? %>
+	<li>こんにちは、<%= current_user.name %>さん</li>
+	<li><a href="/signout">ログアウト</a></li>
+	<% else %>
+	
+	<a href="/signup">NewAccount</a>
+	<% end %>
+</ul>
+	</div>
 	<a href="#">MUSIC SNS!!!</a>
 	<a href="#"><img src="" alt="user_image" width="40" height="40"></a></li>
 	<a href="#">search</a></li>
+	<a href="/signin">login</a>
 	<a href="#">logout</a>
 </nav>
 <main>
