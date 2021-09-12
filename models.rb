@@ -10,9 +10,10 @@ class User < ActiveRecord::Base
         format: { with: /\A\w+\z/ }
     validates :password,
         length: { in: 5..10 }
-        has_many :posts
+        has_many :contribution
 end
 
-class Task < ActiveRecord::Base
-belongs_to :user
+class Contribution < ActiveRecord::Base
+    belongs_to :user
+    
 end

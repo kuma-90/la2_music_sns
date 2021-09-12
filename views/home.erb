@@ -1,18 +1,42 @@
 <section class="center-vertical">
-	<h1>〇〇の投稿</h1>
+	<h1><%=current_user.name%>の投稿</h1>
+	<div class="post center-vertical">
+	
+		<% @postos.each do |music| %>
+		
+		<div>
+			<img src="<%= music.jacket %>">
+			<p><%= music.artist_name %> </p>
+			<a href="<%= music["previewUrl"] %>">サンプル</a>
+			<p><%= music.comments%></p>
+
+			<form action="/delete/<%= music.id %>" method="post">
+			<input type="submit" value="Delete">
+			<!--
+			<a href="/delete/<%#= content.id %>">Delete</a>
+			-->
+			</form>
+			<a href="/edit/<%= music.id %>">Edit</a>
+	
+		</div>
+		<p>いいねしたユーザ</p>
+			<% end %>	
+	
 	<p>投稿がありません</p>
+
 </section>
 
 <section class="center-vertical">
-	<h1>〇〇のイイねした投稿</h1>
+	<h1><%= current_user.name %></h1>のイイねした投稿</h1>
 	<p>イイねがありません</p>
 </section>
 
 <section class="center-vertical">
-	<h1>〇〇 のフォロー</h1>
+	<h1><%=current_user.name%> のフォロー</h1>
 	<a href="#">フォロー解除</a><br>
 </section>
 
 <section class="center-vertical">
-	<h1>〇〇のフォロワー</h1>
+	<h1><%=current_user.name%>のフォロワー</h1>
+		</div>
 </section>

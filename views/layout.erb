@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+	<head>
 	<meta charset="UTF-8">
 	<title>MUSIC SNS</title>
 	<link rel="stylesheet" href="/assets/css/index.css">
 	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 <body>
-<nav class="center-hrizontal">
-	<div>
-
-<ul>
-	<% if !current_user.nil? %>
-	<li>こんにちは、<%= current_user.name %>さん</li>
-	<li><a href="/signout">ログアウト</a></li>
-	<% else %>
+	<nav class="center-hrizontal">
 	
-	<a href="/signup">NewAccount</a>
-	<% end %>
-</ul>
-	</div>
-	<a href="#">MUSIC SNS!!!</a>
-	<a href="#"><img src="" alt="user_image" width="40" height="40"></a></li>
-	<a href="#">search</a></li>
-	<a href="/signin">login</a>
-	<a href="#">logout</a>
-</nav>
-<main>
-
-<%= yield %>
-
-</main>
+	<a href="/">MUSIC SNS!!!</a>
+		<% if !session[:user] %>	
+			<a href="/signup">NewAccount</a>
+			<a href="/signin">login</a>
+		<% else %>
+			<% if current_user.img =="" %>
+				<a href ="/home"><img src="/assets/img/Whitemerry2.jpg" alt="user_image" width="40" height="40"></a>	
+			<% else %>
+				<a href ="/home"><img src="<%= current_user.img %>"alt="user_image" width="40" height="40"></a>
+			<% end %>
+				<a href="/search">search</a>
+				<a href="/signout">logout</a>
+		<% end %>
+		
+		  
+	 		
+     		</form>
+		</nav>
+	<main>
+		<%= yield %>
+	</main>
 </body>
 </html>

@@ -1,3 +1,8 @@
 <section class="center-vertical">
-	<h1>コメントの更新</h1>
+	<body>
+	<form action="/renew/<%= @content.id %>" method="post">
+	<p>コメントの更新<input type="text" name="comments" value="<%= @content.comments %>"></p>
+	<input type="submit" value="更新">
+	</form>
+	</body>
 </section>
