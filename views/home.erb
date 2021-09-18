@@ -7,14 +7,13 @@
 		<div>
 			<img src="<%= music.jacket %>">
 			<p><%= music.artist_name %> </p>
-			<a href="<%= music["previewUrl"] %>">サンプル</a>
-			<p><%= music.comments%></p>
+			<a href="<%= music.url %>">サンプル</a>
+			<p><%= music.comments %></p>
 
 			<form action="/delete/<%= music.id %>" method="post">
 			<input type="submit" value="Delete">
-			<!--
-			<a href="/delete/<%#= content.id %>">Delete</a>
-			-->
+		
+		
 			</form>
 			<a href="/edit/<%= music.id %>">Edit</a>
 	

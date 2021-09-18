@@ -32,7 +32,7 @@ end
 
 post '/' do
  @content = Contribution.find(params[:id])
-  content = Contribution.find(params[:id])
+
  end
 
 
@@ -99,7 +99,7 @@ post '/new' do
    artist_name: params[:artistName],
    url: params[:previewUrl],
    user_name: params[:user_name],
-   comments: params[:comment],
+   comments: params[:comments],
    id: params[:id]
     )
   redirect '/home'
@@ -131,14 +131,15 @@ get '/edit/:id' do
     erb :edit
 end
 
-get 'renew' do
+get '/renew' do
     @postos = Contribution.all
 end
 
-post 'renew/:id' do
-    content = Contribution.find(params[:id])
-    content.update({
-        comments: params[:comment]
+post '/renew/:id' do
+    @postos = Contribution.all
+    @content = Contribution.find(params[:id])
+    @content.update({
+        comments: params[:comments]
     })
 redirect '/home'
 end
