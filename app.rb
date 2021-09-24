@@ -100,7 +100,9 @@ post '/new' do
    url: params[:previewUrl],
    user_name: params[:user_name],
    comments: params[:comments],
-   id: params[:id]
+   id: params[:id],
+   img: params[:user_img]
+   
     )
   redirect '/home'
 end
@@ -116,8 +118,6 @@ post 'home/:id' do
  @content = Contribution.find(params[:id])
  end
 
-
-    
 post '/delete/:id' do
    
     @content = Contribution.find(params[:id])
@@ -143,4 +143,13 @@ post '/renew/:id' do
     })
 redirect '/home'
 end
+
+get '/like' do
+     @postos = Contribution.all
+     redirect '/home'
+ end
+
+
+ 
+ 
 

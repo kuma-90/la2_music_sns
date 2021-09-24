@@ -11,9 +11,17 @@ class User < ActiveRecord::Base
     validates :password,
         length: { in: 5..10 }
         has_many :contribution
+        has_many :likes
+    
 end
 
 class Contribution < ActiveRecord::Base
     belongs_to :user
+    has_many :likes
     
+end
+
+class Like < ActiveRecord::Base
+    belongs_to :user
+    belongs_to :contribution
 end

@@ -18,9 +18,10 @@
 				<p>投稿者<%= music.user_name %></p>
 				<a href="#">フォローする</a>
 				<a href="#">"フォロー解除</a><br>
-				<a href="#">いいねする</a>
+	
+				<a href ="/like">いいねする</a>
 				<p>いいねしたユーザー<br></p>
-				<img src="" alt="user_image" width="40" height="40">
+				<% music.user_name %>
 			<%end %>
 	
 			<p>投稿がありません</p>

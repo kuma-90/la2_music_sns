@@ -27,6 +27,17 @@
 
 <section class="center-vertical">
 	<h1><%= current_user.name %></h1>のイイねした投稿</h1>
+	
+	<% @postos.each do |music| %>
+				<div>
+				<img src="<%= music.jacket %>">
+				<p><%= music.artist_name %> </p>
+				<p><%= music.comments %></p>
+				<p>投稿者<%= music.user_name %></p>
+				<p>いいねしたユーザ</p>
+				<%= music.user_name %> 
+			
+		<% end %>		
 	<p>イイねがありません</p>
 </section>
 
